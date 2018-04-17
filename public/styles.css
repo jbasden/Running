@@ -1,0 +1,44 @@
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding: 20px 100px 0px 100px;
+    background: #00BFFF;
+    //background-image: url('running.jpeg');
+    background-position: center;
+    background-size: 1500px;
+    background-repeat:no-repeat;
+}
+
+form {
+    text-align:center;
+}
+
+h1 {
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+input, textarea, select, button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+.run {
+    display: flex;
+}
+
+.details {
+    flex: 5;
+}
+
+.delete {
+    flex: 1;
+}
