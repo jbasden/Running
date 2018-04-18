@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
       table.float('time');
       table.text('personal_notes');
       table.date('run_on');
+      table.integer('user_id').unsigned().notNullable().references('id').inTable('users');
     }),
   ]);
 };

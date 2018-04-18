@@ -4,8 +4,11 @@ var app = new Vue({
     addedLength: '',
     addedTime: '',
     addedNotes: '',
+    totalDistanceRun: 0,
+    totalTimeRun: 0,
+    numberRuns: 0,
     runs: [],
-    foo: 'bar',
+    statsVisible: false,
   },
   created: function() {
     this.getRuns();
@@ -26,23 +29,25 @@ var app = new Vue({
       month[10] = "November";
       month[11] = "December";
       let date = new Date(run.run_on);
-      console.log(date);
       let monthName = month[date.getMonth()];
       return `${date.getDate()} ${monthName} ${date.getFullYear()}`
     },
   },
   methods: {
+    showStats: function() {
+      this.statsVisible = true;
+    },
     getRuns: function() {
-      console.log("Entered the getRuns function");
-      console.log(this.runs);
-      axios.get('http://104.236.13.247:3001/api/runs').then(response => {
+        axios.get('http://104.236.13.247:3001/api/runs').then(response => {
         this.runs = response.data;
         return true;
       }).catch(err => {
       });
     },
     addRun: function() {
-      console.log("hi there");
+      this.totalDistanceRun += this.addedLength;
+      this.totalTimeRun += this.addedTime;
+      this.numberRuns += 1;
       axios.post('http://104.236.13.247:3001/api/runs', {
         length: this.addedLength,
         time: this.addedTime,

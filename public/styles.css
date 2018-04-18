@@ -1,3 +1,19 @@
+.homepage {
+    background: none;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color:black;
+  text-align: center;
+}
+
+.rightCorner {
+    right: 10px;
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -10,6 +26,15 @@ body {
     background-repeat:no-repeat;
 }
 
+body .homepage {
+    background-color: none;
+}
+
+.mainPic {
+    text-align:center;
+    font-size: 1500px;
+}
+
 form {
     text-align:center;
 }
@@ -17,7 +42,9 @@ form {
 h1 {
     text-align: center;
 }
-
+h2 {
+    text-align: center;
+}
 textarea {
     width: 100%;
     max-width: 500px;

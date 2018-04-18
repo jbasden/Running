@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css"/>
+    <title>The Runner</title>
+  </head>
+  <body>
+    <a class ="rightCorner" href='./index.html'>Logout</a>
+    <div id="app">
+    <h1>THE RUN TRACKER</h1>
+      <h2>Enter information below about each of your runs to track your progress!</h2>
+      <form v-on:submit.prevent>
+        <input v-model="addedLength" placeholder="Length of Run (miles)"><br/><br/>
+        <input v-model="addedTime" placeholder="Total time (minutes)"><br/><br/>
+        <textarea v-model="addedNotes" placeholder="Enter some notes about how your run went!"></textarea><br/><br/>
+        <button v-on:click="addRun">Log Your Run!</button>
+      </form>
+      <form v-if="statsVisible">
+        <p>Total Distance Run: {{totalDistanceRun}}</p>
+        <p>Total Time Run: {{totalTimeRun}}</p>
+        <p>Total Number of Runs: {{numberRuns}}</p>
+      </form>
+      <form v-else v-on:submit.prevent>
+        </br>
+        <button v-on:click="showStats">See your stats!</button>
+      </form>
+      <h3>My Runs:</h3>
+      <div v-for="run in runs">
+        <hr>
+        <div class="run">
+          <div class="details">
+            <p>Length of Run: {{run.length}}</p>
+            <p>Total Time: {{run.time}}</p>
+            <p>Run on: {{run | dateFormat }}</p>
+            <p>Personal Notes: {{run.personal_notes}}</p>
+          </div>
+          <div class="delete">
+            <button v-on:click="deleteRun(run)" class="delete">Delete Run</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" integrity="sha256-pU9euBaEcVl8Gtg+FRYCtin2vKLN8sx5/4npZDmY2VA=" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+  <a class ='footer' href="https://github.com/jbasden/Running.git">GitHub Repository</a>
+  </body>
+</html>
+
